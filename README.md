@@ -1,6 +1,12 @@
 # shell-gradle-wrapper
 
-A simple shell script for finding and running the gradle wrapper script in the present directory or the first parent dir.
+A simple shell script for running the gradle wrapper at any folder of your project without having to specifying the full path.
+
+For example:
+```
+project/some/sub/sub/sub/dir$ ../../../../../gradlew tasks # this script avoids this mess...
+project/some/sub/sub/sub/dir$ gw task # ...and allows a short and simple notation
+```
 
 Installation:
 
