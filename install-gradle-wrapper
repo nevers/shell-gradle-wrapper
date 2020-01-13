@@ -9,13 +9,6 @@ main() {
   echo "gw installed, don't forget to source ~/.profile"
 }
 
-check_installed() {
-  bash -c ". ~/.profile && type gw &> /dev/null && echo 'already installed' && exit -1"
-  local ret=$?
-  echo $ret
-  return $ret
-}
-
 gw() {
   dir=$PWD
   file=gradlew
