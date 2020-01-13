@@ -1,0 +1,35 @@
+#!/bin/bash
+
+. ~/.profile
+type gw &> /dev/null && echo 'already installed, exiting' && exit -1
+
+main() {
+  source=$(declare -f gw)
+  echo -e "\n$source" >> ~/.profile
+  echo "gw installed, don't forget to source ~/.profile"
+}
+
+check_installed() {
+  bash -c ". ~/.profile && type gw &> /dev/null && echo 'already installed' && exit -1"
+  local ret=$?
+  echo $ret
+  return $ret
+}
+
+gw() {
+  dir=$PWD
+  file=gradlew
+  while [[ $dir != "/" ]]; do
+    if [[ -f "$dir/$file" ]]; then
+      $dir/$file $@
+      return 0
+    else
+      dir=$(realpath $dir/..)
+    fi
+  done
+
+  echo "error: could not find '$file' upwards and reached '$dir'."
+  return 1
+}
+
+main
