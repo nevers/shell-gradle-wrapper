@@ -11,5 +11,6 @@ project/some/sub/sub/sub/dir$ gw task # ...and allows a short and simple notatio
 Installation:
 
 ```
-bash <(curl -s https://raw.githubusercontent.com/nevers/shell-gradle-wrapper/master/install-gradle-wrapper)
+# change ~/.profile to whatever shell config you use
+curl -s https://raw.githubusercontent.com/nevers/shell-gradle-wrapper/master/gw >> ~/.profile
 ```
