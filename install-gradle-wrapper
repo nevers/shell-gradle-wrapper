@@ -1,13 +1,3 @@
-#!/bin/bash
-
-. ~/.profile
-type gw &> /dev/null && echo 'already installed, exiting' && exit -1
-
-main() {
-  source=$(declare -f gw)
-  echo -e "\n$source" >> ~/.profile
-  echo "gw installed, don't forget to source ~/.profile"
-}
 
 gw() {
     dir=$PWD;
