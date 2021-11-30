@@ -3,7 +3,7 @@ gw() {
     dir=$PWD;
     file=gradlew;
     while [[ ! -f "$dir/$file" && $dir != "/" ]]; do
-      dir=$(cd $dir/.. && pwd)
+      dir=$(readlink -f $dir/..)
     done;
 
     if [[ $dir == "/" ]]; then
@@ -11,6 +11,5 @@ gw() {
       return 1
     else
       $dir/$file $@
-      return $?
     fi
 }
